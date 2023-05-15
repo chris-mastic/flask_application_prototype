@@ -1,4 +1,4 @@
-from app import create_app, db, celery
+from app import create_app, db
 from app.models import User
 from flask_migrate import Migrate
 from app.seed import seed_db
