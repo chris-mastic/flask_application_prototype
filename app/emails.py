@@ -1,26 +1,20 @@
 from flask_mail import Message
-from app import mail, celery
+from app import mail
 from flask import render_template, url_for, current_app
 
-@celery.task
-def send_mail_with_celery(content):
-    msg = create_message(content)
-    mail.send(msg)
 
 def send_mail(to, subject, template, **kwargs):
     content = {
         "subject": subject,
-        "sender": "Globomantics Team <noreply@globomantics.com>",
+        "sender": "chrismazza@baileytech.tech",
         "recipients": [to],
         "template": template,
         "kwargs": kwargs
     }
 
-    if current_app.config["SEND_MAILS_WITH_CELERY"]:
-        send_mail_with_celery.delay(content)
-    else:
-        msg = create_message(content)
-        mail.send(msg)
+
+    msg = create_message(content)
+    mail.send(msg)
 
 def create_message(content):
     msg = Message(
