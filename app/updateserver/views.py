@@ -7,8 +7,8 @@ def webhook():
     print('in webhook')
     if request.method == 'GET':
         print(f'Before repo assignment')
-        #repo = Repo('https://github.com/chris-mastic/flask_application_prototype.git')
-        repo = Repo('/home/chris/bailey-tech/source-code/flask_application_prototype')
+        repo = Repo('/home/chrism/flask_application_prototype')
+        #repo = Repo('/home/chris/bailey-tech/source-code/flask_application_prototype')
         print(f'repo {repo}')
         origin = repo.remotes.origin
         print(f'origin {origin}')
