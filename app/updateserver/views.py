@@ -12,7 +12,7 @@ def webhook():
         print(f'repo {repo}')
         origin = repo.remotes.origin
         print(f'origin {origin}')
-        origin.pull()
+        origin.pull('https://github.com/chris-mastic/flask_application_prototype', 'master')
         return 'Updated PythonAnywhere successfully', 200
     else:
         return 'Wrong event type', 400
