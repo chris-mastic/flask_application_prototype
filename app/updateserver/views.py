@@ -4,7 +4,7 @@ updateserver = Blueprint("updateserver", __name__)
 
 @updateserver.route('/update_server', methods=['POST'])
 def webhook():
-    print('in webhook')
+    print('in webhook fx')
     if request.method == 'POST':
         print(f'Before repo assignment')
         repo = Repo('/home/chrism/flask_application_prototype')
