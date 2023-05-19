@@ -2,7 +2,7 @@ from flask import request, Blueprint
 from git import Repo
 updateserver = Blueprint("updateserver", __name__)
 
-@updateserver.route('/update_server', methods=['POST'])
+@updateserver.route('/update_server', methods=['POST', 'GET'])
 def webhook():
     print('in webhook fx')
     if request.method == 'POST':
